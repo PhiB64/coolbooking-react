@@ -1,0 +1,118 @@
+#inscriptionContent {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $thirdFilter-color;
+}
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  text-align: center;
+  margin-left: 100px;
+
+  .accountCreationTitle {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-size: 32px;
+    color: $secondary-color;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
+    margin-top: 100px;
+  }
+
+  .imageUpload {
+    display: flex;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    justify-content: center;
+
+    .profileImage {
+      width: 150px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  p {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    color: $secondary-color;
+    font-size: 16px;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6352941176));
+    margin-top: 10px;
+  }
+}
+
+.rightContainer {
+  width: 50%;
+  height: 100%;
+}
+
+.checkboxes {
+  display: flex;
+  height: 30%;
+  width: 100%;
+  align-items: flex-end;
+
+  .checkbox {
+    display: flex;
+    align-items: center;
+    width: 200px;
+    justify-content: center;
+    flex-direction: row-reverse;
+    color: $secondary-color;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6352941176));
+    font-size: 20px;
+    font-family: $first-fontFamily;
+    font-weight: 600;
+    margin-bottom: 20px;
+    gap: 10px;
+  }
+
+  input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+.registrationForm {
+  height: 70%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: flex-start;
+  align-items: start;
+}
+::placeholder {
+  color: $tertiary-color;
+  opacity: 1;
+}
+input {
+  width: 400px;
+  @include form;
+  padding-left: 20px;
+}
+
+button {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $tertiary-color;
+  @include form;
+}
+a {
+  text-decoration: none;
+}

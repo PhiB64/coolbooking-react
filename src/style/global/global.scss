@@ -1,0 +1,50 @@
+@import "../../style/variables/variables";
+@import "../../style/mixin/mixin";
+
+@import "../../components/Header/Header";
+@import "../../components/Footer/Footer";
+
+@import "../../components/pages/Home/Home";
+
+@import "../../components/pages/Account/Account";
+@import "../../components/pages/Donation/Donation";
+@import "../../components/pages/Connection/Connection";
+@import "../../components/pages/OwnerMenu/OwnerMenu";
+@import "../../components/pages/OwnerPage/OwnerPage";
+@import "../../components/pages/TenantMenu/TenantMenu";
+@import "../../components/pages/TenantPage/TenantPage";
+@import "../../components/pages/Messages/Messages";
+@import "../../components/pages/Favorites/Favorites";
+@import "../../components/pages/Contact/Contact";
+@import "../../components/pages/Ads/Ads";
+@import "../../components/pages/AddAd/AddAd";
+@import "../../components/pages/Inscription/Inscription";
+@import "../../components/pages/AdCreation/AdCreation";
+
+@font-face {
+  font-family: "Quicksand";
+  src: url("../../assets/Quicksand-VariableFont_wght.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Jockey One";
+  src: url("../../assets/JockeyOne-Regular.ttf") format("truetype");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background-image: url("/src/assets/Background.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.mainContent {
+  padding: 0;
+  margin: 0;
+  height: 75vh;
+  width: 100vw;
+  overflow: hidden;
+}

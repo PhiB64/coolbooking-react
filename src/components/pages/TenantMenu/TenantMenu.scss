@@ -1,0 +1,42 @@
+#tenantMenuContent {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: $firstFilter-color;
+  justify-content: center;
+  align-items: center;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+  height: auto;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 25px;
+    color: $secondary-color;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 600;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
+    transition: background-color 0.3s ease;
+    &:hover {
+      color: $whiteHover-color;
+      cursor: pointer;
+    }
+  }
+}

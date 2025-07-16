@@ -1,0 +1,51 @@
+@mixin brownButton {
+  background-color: $primary-color;
+  font-family: $first-fontFamily;
+  font-weight: 600;
+  color: $secondary-color;
+  padding: 10px 40px;
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: $brownHover-color;
+    cursor: pointer;
+  }
+}
+
+@mixin whiteButton {
+  background-color: $secondary-color;
+  color: $primary-color;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 40px;
+  width: auto;
+  height: auto;
+  text-align: center;
+  font-family: $first-fontFamily;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: $whiteHover-color;
+    cursor: pointer;
+  }
+}
+
+@mixin form {
+  display: flex;
+  align-items: center;
+  font-family: $first-fontFamily;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  height: 35px;
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: $whiteHover-color;
+    cursor: pointer;
+  }
+}

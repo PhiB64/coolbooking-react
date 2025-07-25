@@ -1,3 +1,6 @@
+@use "../../style/variables/variables.scss" as *;
+@use "../../style/mixin/mixin.scss" as *;
+
 header {
   margin: 0;
   padding: 0;

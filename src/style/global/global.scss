@@ -1,25 +1,21 @@
-@import "../../style/variables/variables";
-@import "../../style/mixin/mixin";
+@use "../../components/Header/Header" as *;
+@use "../../components/Footer/Footer" as *;
 
-@import "../../components/Header/Header";
-@import "../../components/Footer/Footer";
-
-@import "../../components/pages/Home/Home";
-
-@import "../../components/pages/Account/Account";
-@import "../../components/pages/Donation/Donation";
-@import "../../components/pages/Connection/Connection";
-@import "../../components/pages/OwnerMenu/OwnerMenu";
-@import "../../components/pages/OwnerPage/OwnerPage";
-@import "../../components/pages/TenantMenu/TenantMenu";
-@import "../../components/pages/TenantPage/TenantPage";
-@import "../../components/pages/Messages/Messages";
-@import "../../components/pages/Favorites/Favorites";
-@import "../../components/pages/Contact/Contact";
-@import "../../components/pages/Ads/Ads";
-@import "../../components/pages/AddAd/AddAd";
-@import "../../components/pages/Inscription/Inscription";
-@import "../../components/pages/AdCreation/AdCreation";
+@use "../../components/pages/Home/Home" as *;
+@use "../../components/pages/Account/Account" as *;
+@use "../../components/pages/Donation/Donation" as *;
+@use "../../components/pages/Connection/Connection" as *;
+@use "../../components/pages/OwnerMenu/OwnerMenu" as *;
+@use "../../components/pages/OwnerPage/OwnerPage" as *;
+@use "../../components/pages/TenantMenu/TenantMenu" as *;
+@use "../../components/pages/TenantPage/TenantPage" as *;
+@use "../../components/pages/Messages/Messages" as *;
+@use "../../components/pages/Favorites/Favorites" as *;
+@use "../../components/pages/Contact/Contact" as *;
+@use "../../components/pages/Ads/Ads" as *;
+@use "../../components/pages/AddAd/AddAd" as *;
+@use "../../components/pages/Inscription/Inscription" as *;
+@use "../../components/pages/AdCreation/AdCreation" as *;
 
 @font-face {
   font-family: "Quicksand";
@@ -41,6 +37,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
 .mainContent {
   padding: 0;
   margin: 0;

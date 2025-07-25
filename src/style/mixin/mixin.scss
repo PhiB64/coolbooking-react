@@ -1,3 +1,5 @@
+@use "../variables/variables.scss" as *;
+
 @mixin brownButton {
   background-color: $primary-color;
   font-family: $first-fontFamily;

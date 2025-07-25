@@ -1,3 +1,6 @@
+@use "../../../style/variables/variables.scss" as *;
+@use "../../../style/mixin/mixin.scss" as *;
+
 #inscriptionContent {
   display: flex;
   padding: 0;

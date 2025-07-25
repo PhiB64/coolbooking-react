@@ -1,45 +1,39 @@
 import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function Inscription() {
   const [imageSrc, setImageSrc] = useState("/src/assets/download.png");
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const storedImage = localStorage.getItem("profileImage");
-    if (storedImage) {
-      setImageSrc(storedImage);
-    }
-  }, []);
-
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
-      reader.onload = () => {
-        setImageSrc(reader.result);
-        localStorage.setItem("profileImage", reader.result);
-      };
+      reader.onload = () => setImageSrc(reader.result); // Preview seulement
       reader.readAsDataURL(file);
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // Ici tu peux ajouter une validation personnalisée
-    const password = event.target.password.value;
-    const confirmPassword = event.target.confirmpassword.value;
+    const formData = new FormData(event.target);
 
-    if (password !== confirmPassword) {
-      alert("Les mots de passe ne correspondent pas.");
-      return;
+    try {
+      const response = await fetch("http://localhost:3000/users/register", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText);
+      }
+
+      navigate("/Compte");
+    } catch (err) {
+      alert("Erreur : " + err.message);
     }
-
-    // Traitement des données (ex: appel API) ici...
-
-    // Redirection vers la page "Compte"
-    navigate("/Compte");
   };
 
   return (
@@ -56,82 +50,63 @@ export default function Inscription() {
               onClick={() => document.getElementById("newImage").click()}
               style={{ cursor: "pointer" }}
             />
-            <input
-              type="file"
-              id="newImage"
-              accept="image/*"
-              style={{ display: "none" }}
-              onChange={handleImageChange}
-            />
           </div>
           <p>Insérez une photo</p>
         </div>
 
         <div className="rightContainer">
-          <div className="checkboxes">
-            <div className="checkbox">
-              <label htmlFor="Propriétaire">Propriétaire</label>
-              <input
-                type="checkbox"
-                id="Propriétaire"
-                name="role"
-                value="Propriétaire"
-              />
-            </div>
-            <div className="checkbox">
-              <label htmlFor="Locataire">Locataire</label>
-              <input
-                type="checkbox"
-                id="Locataire"
-                name="role"
-                value="Locataire"
-              />
-            </div>
-          </div>
+          <form
+            className="registrationForm"
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+          >
+            <input
+              type="file"
+              id="newImage"
+              name="avatar" // ✅ pour Multer côté back
+              accept="image/*"
+              style={{ display: "none" }}
+              onChange={handleImageChange}
+            />
 
-          <form className="registrationForm" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              id="lastname"
-              name="lastname"
-              placeholder="Nom"
-              required
-            />
-            <input
-              type="text"
-              id="firstname"
-              name="firstname"
-              placeholder="Prénom"
-              required
-            />
-            <input
-              type="tel"
-              id="telephone"
-              name="telephone"
-              placeholder="Téléphone"
-              required
-            />
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email"
-              required
-            />
+            <div className="checkboxes">
+              <div className="checkbox">
+                <label htmlFor="Propriétaire">Propriétaire</label>
+                <input
+                  type="checkbox"
+                  id="Propriétaire"
+                  name="role"
+                  value="owner"
+                />
+              </div>
+              <div className="checkbox">
+                <label htmlFor="Locataire">Locataire</label>
+                <input
+                  type="checkbox"
+                  id="Locataire"
+                  name="role"
+                  value="tenant"
+                />
+              </div>
+            </div>
+
+            <input type="text" name="name" placeholder="Nom" required />
+            <input type="text" name="firstname" placeholder="Prénom" required />
+            <input type="tel" name="phone" placeholder="Téléphone" required />
+            <input type="email" name="email" placeholder="Email" required />
             <input
               type="password"
-              id="password"
               name="password"
               placeholder="Mot de passe"
               required
             />
             <input
               type="password"
-              id="confirmpassword"
               name="confirmpassword"
               placeholder="Vérification du mot de passe"
               required
             />
+
             <button type="submit">Valider</button>
           </form>
         </div>

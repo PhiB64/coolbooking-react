@@ -1,27 +1,52 @@
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function Connection() {
-  const [role, setRole] = useState("");
   const navigate = useNavigate();
 
-  const handleCheckboxChange = (event) => {
-    const { value, checked } = event.target;
-    if (checked) {
-      setRole(value);
-    } else {
-      setRole("");
-    }
-  };
-
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (role === "Locataire") {
-      navigate("/Menu_Locataire");
-    } else if (role === "Propriétaire") {
-      navigate("/Menu_Proprietaire");
-    } else {
-      alert("Veuillez sélectionner un rôle");
+
+    const formData = new FormData(event.target);
+
+    try {
+      const response = await fetch("http://localhost:3000/users/login", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(errorText);
+      }
+
+      const userData = await response.json();
+      console.log("Connexion réussie :", userData);
+
+      const role = userData.role;
+
+      // ✅ Redirection selon le rôle
+      if (Array.isArray(role)) {
+        if (role.includes("owner") && role.includes("tenant")) {
+          navigate("/Menu_Proprietaire"); // ou une vue combinée
+        } else if (role.includes("owner")) {
+          navigate("/Menu_Proprietaire");
+        } else if (role.includes("tenant")) {
+          navigate("/Menu_Locataire");
+        } else {
+          alert("Rôle inconnu — redirection impossible.");
+        }
+      } else {
+        // Si role est une string
+        if (role === "owner") {
+          navigate("/Menu_Proprietaire");
+        } else if (role === "tenant") {
+          navigate("/Menu_Locataire");
+        } else {
+          alert("Rôle inconnu — redirection impossible.");
+        }
+      }
+    } catch (err) {
+      alert("Erreur : " + err.message);
     }
   };
 
@@ -33,31 +58,6 @@ export default function Connection() {
         </div>
 
         <div className="secondContainer">
-          <div className="checkboxes">
-            <div className="checkbox">
-              <label htmlFor="Propriétaire">Propriétaire</label>
-              <input
-                type="checkbox"
-                id="Propriétaire"
-                name="role"
-                value="Propriétaire"
-                checked={role === "Propriétaire"}
-                onChange={handleCheckboxChange}
-              />
-            </div>
-            <div className="checkbox">
-              <label htmlFor="Locataire">Locataire</label>
-              <input
-                type="checkbox"
-                id="Locataire"
-                name="role"
-                value="Locataire"
-                checked={role === "Locataire"}
-                onChange={handleCheckboxChange}
-              />
-            </div>
-          </div>
-
           <form className="registrationForm" onSubmit={handleSubmit}>
             <input
               type="email"

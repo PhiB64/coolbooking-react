@@ -4,7 +4,7 @@
   margin: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(148, 111, 93, 0.5019607843);
+  background-color: rgba(148, 111, 93, 0.8470588235);
   justify-content: center;
   align-items: center;
 }
@@ -35,4 +35,15 @@ ul .link {
 ul .link:hover {
   color: #cccccc;
   cursor: pointer;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.link:visited,
+.link:active,
+.link:hover,
+.link:focus {
+  text-decoration: none;
 }/*# sourceMappingURL=TenantMenu.css.map */

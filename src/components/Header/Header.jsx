@@ -1,4 +1,7 @@
+import { useContext } from "react";
+import { UserContext } from "../Context/UserContext.jsx";
 import { useLocation } from "react-router-dom";
+
 import {
   ConnectionButton,
   DisconnectButton,
@@ -8,56 +11,61 @@ import {
 } from "../Buttons/buttons";
 
 export default function Header() {
+  const { user } = useContext(UserContext);
   const location = useLocation();
-  const isDefaultPage = location.pathname === "/";
-  const isHomePage = location.pathname === "/Accueil";
-  const isInscriptionPage = location.pathname === "/Inscription";
-  const isConnectionPage = location.pathname === "/Connexion";
-  const isDonationPage = location.pathname === "/Je_donne";
-  const isAccountPage = location.pathname === "/Compte";
-  const isMessagesPage = location.pathname === "/Messages";
-  const isContactPage = location.pathname === "/Contact";
-  const isFavoritesPage = location.pathname === "/Favoris";
-  const isAdPage = location.pathname === "/Annonces";
-  const isTenantMenuPage = location.pathname === "/Menu_Locataire";
-  const isAddAdPage = location.pathname === "/Deposer";
-  const isAdCreationPage = location.pathname === "/Creation";
+  const pathname = location.pathname;
 
-  const isOwner =
-    location.pathname === "/Menu_Proprietaire" ||
-    location.pathname === "/Espace_Proprietaire" ||
-    location.pathname === "/Deposer" ||
-    location.pathname === "/Creation";
+  // Pages publiques
+  const publicPages = [
+    "/",
+    "/Accueil",
+    "/Inscription",
+    "/Connexion",
+    "/Je_donne",
+    "/Compte",
+  ];
+
+  // Détection du rôle propriétaire
+  const isOwner = [
+    "/Menu_Proprietaire",
+    "/Espace_Proprietaire",
+    "/Deposer",
+    "/Creation",
+  ].includes(pathname);
 
   const subtitle = isOwner
     ? "Espace Propriétaire"
     : "Vos locations de vacances moins chères";
 
-  let buttonContent = null;
+  // Boutons à afficher en fonction de la route
+  let buttonContent = <HomeButton />;
 
-  if (isDefaultPage) {
+  if (pathname === "/" || pathname === "/Accueil") {
     buttonContent = <ConnectionButton />;
-  } else if (isHomePage) {
-    buttonContent = <ConnectionButton />;
-  } else if (isDonationPage) {
+  } else if (pathname === "/Je_donne") {
     buttonContent = <TenantMenuButton />;
-  } else if (isTenantMenuPage) {
+  } else if (pathname === "/Menu_Locataire") {
     buttonContent = <DisconnectButton />;
-  } else if (isMessagesPage || isContactPage || isFavoritesPage || isAdPage) {
+  } else if (
+    ["/Messages", "/Contact", "/Favoris", "/Annonces"].includes(pathname)
+  ) {
     buttonContent = (
       <>
         <TenantMenuButton />
         <DisconnectButton />
       </>
     );
-  } else if (isAddAdPage || isAdCreationPage) {
+  } else if (["/Deposer", "/Creation"].includes(pathname)) {
     buttonContent = (
       <>
         <OwnerMenuButton />
         <DisconnectButton />
       </>
     );
-  } else buttonContent = <HomeButton />;
+  }
+
+  // Avatar visible uniquement si utilisateur connecté et pas sur une page publique
+  const showAvatar = !publicPages.includes(pathname) && user && user.avatarUrl;
 
   return (
     <header>
@@ -66,22 +74,21 @@ export default function Header() {
         <h4 className="navSubTitle">{subtitle}</h4>
       </div>
       <div className="navButtonContainer">
-        {!isDefaultPage &&
-          !isHomePage &&
-          !isInscriptionPage &&
-          !isConnectionPage &&
-          !isDonationPage &&
-          !isAccountPage && (
-            <div className="avatar">
-              <span className="name">Alexandre</span>
-              <div className="photo">
-                <img
-                  src="https://res.cloudinary.com/dwkyezu2u/image/upload/v1744473288/photo_compte_gm5cwd.jpg"
-                  alt=""
-                />
-              </div>
+        {showAvatar && user?.avatarUrl && (
+          <div className="avatar">
+            <span className="name">{user.name}</span>
+            <div className="photo">
+              <img
+                src={user.avatarUrl}
+                alt="Profil"
+                onError={(e) => {
+                  e.target.onerror = null;
+                  e.target.src = "/download.png";
+                }}
+              />
             </div>
-          )}
+          </div>
+        )}
         <div className="navButtons">{buttonContent}</div>
       </div>
     </header>

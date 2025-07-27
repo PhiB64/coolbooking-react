@@ -34,12 +34,23 @@
   overflow: hidden;
   justify-content: center;
 }
-.leftContainer .imageUpload .profileImage {
-  width: 150px;
+.leftContainer .imageUpload #profileImage {
+  width: 100%;
+  height: 100%;
+  border: none;
+  padding: 0;
+  background: none;
+}
+.leftContainer .imageUpload #profileImage img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-.leftContainer .imageUpload .profileImage:hover {
+.leftContainer .imageUpload #profileImage img:hover {
   transform: scale(1.1);
 }
 .leftContainer p {
@@ -55,53 +66,46 @@
   width: 50%;
   height: 100%;
 }
-
-.checkboxes {
+.rightContainer .checkRoles {
+  margin: 0;
+  padding: 0;
   display: flex;
-  height: 30%;
   width: 100%;
-  align-items: flex-end;
+  gap: 30px;
 }
-.checkboxes .checkbox {
+.rightContainer .checkRoles .role {
   display: flex;
   align-items: center;
-  width: 200px;
-  justify-content: center;
-  flex-direction: row-reverse;
+  justify-content: flex-start;
+  flex-direction: row;
   color: #ffffff;
-  filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6352941176));
   font-size: 20px;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   margin-bottom: 20px;
-  gap: 10px;
 }
-.checkboxes input[type=checkbox] {
-  width: 25px;
-  height: 25px;
+.rightContainer .checkRoles .role input[type=radio] {
+  width: 50px;
+  transform: scale(0.6);
 }
-
-.registrationForm {
-  height: 70%;
+.rightContainer .registrationForm {
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: start;
 }
-
-::-moz-placeholder {
+.rightContainer ::-moz-placeholder {
   color: #7b5c4d;
   opacity: 1;
 }
-
-::placeholder {
+.rightContainer ::placeholder {
   color: #7b5c4d;
   opacity: 1;
 }
-
-input {
+.rightContainer input {
   width: 400px;
   display: flex;
   align-items: center;
@@ -114,12 +118,11 @@ input {
   transition: background-color 0.3s ease;
   padding-left: 20px;
 }
-input:hover {
+.rightContainer input:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
-
-button {
+.rightContainer button {
   width: 200px;
   display: flex;
   justify-content: center;
@@ -135,11 +138,61 @@ button {
   height: 35px;
   transition: background-color 0.3s ease;
 }
-button:hover {
+.rightContainer button:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
-
-a {
+.rightContainer a {
   text-decoration: none;
+}
+
+.rolesModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContent {
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 400px;
+  text-align: center;
+}
+.modalContent p {
+  font-family: "Quicksand", sans-serif;
+  color: #7b5c4d;
+  font-weight: 700;
+  font-size: 17px;
+}
+.modalContent h3 {
+  font-family: "Quicksand", sans-serif;
+  color: #7b5c4d;
+  font-weight: bolder;
+  font-size: 22px;
+}
+.modalContent button {
+  background-color: #946f5d;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  color: #ffffff;
+  padding: 10px 40px;
+  width: auto;
+  height: auto;
+  border: none;
+  border-radius: 20px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  padding: 5px 20px;
+}
+.modalContent button:hover {
+  background-color: #644739;
+  cursor: pointer;
 }/*# sourceMappingURL=Inscription.css.map */

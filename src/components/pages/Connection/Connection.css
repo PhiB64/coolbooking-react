@@ -30,4 +30,61 @@
 #connectionContent .secondContainer {
   display: flex;
   align-items: center;
+}
+#connectionContent .secondContainer .registrationForm {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: start;
+}
+#connectionContent .secondContainer ::-moz-placeholder {
+  color: #7b5c4d;
+  opacity: 1;
+}
+#connectionContent .secondContainer ::placeholder {
+  color: #7b5c4d;
+  opacity: 1;
+}
+#connectionContent .secondContainer input {
+  width: 400px;
+  display: flex;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  height: 35px;
+  transition: background-color 0.3s ease;
+  padding-left: 20px;
+}
+#connectionContent .secondContainer input:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+#connectionContent .secondContainer button {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #7b5c4d;
+  display: flex;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  border: none;
+  border-radius: 20px;
+  font-size: 20px;
+  height: 35px;
+  transition: background-color 0.3s ease;
+}
+#connectionContent .secondContainer button:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+#connectionContent .secondContainer a {
+  text-decoration: none;
 }/*# sourceMappingURL=Connection.css.map */

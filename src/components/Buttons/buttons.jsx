@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "../Context/UserContext.jsx";
 
 export function HomeButton() {
   return (
@@ -33,9 +35,18 @@ export function OwnerMenuButton() {
 }
 
 export function DisconnectButton() {
+  const { setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setUser(null);
+    localStorage.removeItem("user");
+    navigate("/Accueil");
+  };
+
   return (
-    <Link to="/Accueil">
-      <button className="navButton">Se déconnecter</button>
-    </Link>
+    <button className="navButton" onClick={handleLogout}>
+      Se déconnecter
+    </button>
   );
 }

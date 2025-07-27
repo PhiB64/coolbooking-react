@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { UserProvider } from "./components/Context/UserContext.jsx";
+
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./components/pages/Home/Home";
@@ -18,28 +20,30 @@ import AdCreation from "./components/pages/AdCreation/AdCreation";
 
 export default function App() {
   return (
-    <Router>
-      <Header />
-      <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/Accueil" element={<Home />} />
-          <Route path="/Connexion" element={<Connection />} />
-          <Route path="/Je_donne" element={<Donation />} />
-          <Route path="/Inscription" element={<Inscription />} />
-          <Route path="/Menu_Locataire" element={<TenantMenu />} />
-          <Route path="/Menu_Proprietaire" element={<OwnerMenu />} />
-          <Route path="/Espace_Proprietaire" element={<OwnerPage />} />
-          <Route path="/Compte" element={<Account />} />
-          <Route path="/Messages" element={<Messages />} />
-          <Route path="/Contact" element={<Contact />} />
-          <Route path="/Favoris" element={<Favorites />} />
-          <Route path="/Annonces" element={<Ad />} />
-          <Route path="/Deposer" element={<AddAd />} />
-          <Route path="/Creation" element={<AdCreation />} />
-        </Routes>
-      </main>
-      <Footer />
-    </Router>
+    <UserProvider>
+      <Router>
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Accueil" element={<Home />} />
+            <Route path="/Connexion" element={<Connection />} />
+            <Route path="/Je_donne" element={<Donation />} />
+            <Route path="/Inscription" element={<Inscription />} />
+            <Route path="/Menu_Locataire" element={<TenantMenu />} />
+            <Route path="/Menu_Proprietaire" element={<OwnerMenu />} />
+            <Route path="/Espace_Proprietaire" element={<OwnerPage />} />
+            <Route path="/Compte" element={<Account />} />
+            <Route path="/Messages" element={<Messages />} />
+            <Route path="/Contact" element={<Contact />} />
+            <Route path="/Favoris" element={<Favorites />} />
+            <Route path="/Annonces" element={<Ad />} />
+            <Route path="/Deposer" element={<AddAd />} />
+            <Route path="/Creation" element={<AdCreation />} />
+          </Routes>
+        </main>
+        <Footer />
+      </Router>
+    </UserProvider>
   );
 }

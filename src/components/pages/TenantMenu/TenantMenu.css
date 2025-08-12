@@ -35,15 +35,4 @@ ul .link {
 ul .link:hover {
   color: #cccccc;
   cursor: pointer;
-}
-
-.link {
-  text-decoration: none;
-}
-
-.link:visited,
-.link:active,
-.link:hover,
-.link:focus {
-  text-decoration: none;
 }/*# sourceMappingURL=TenantMenu.css.map */

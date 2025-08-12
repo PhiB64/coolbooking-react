@@ -1,132 +1,141 @@
 @use "../../../style/variables/variables.scss" as *;
 @use "../../../style/mixin/mixin.scss" as *;
+
 #inscriptionContent {
   display: flex;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  height: 100%;
-  width: 100%;
+  min-height: 75vh;
+  height: auto;
+  width: 100vw;
+  justify-content: space-evenly;
   background-color: $thirdFilter-color;
-}
-.leftContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50%;
-  text-align: center;
-  margin-left: 100px;
 
-  .accountCreationTitle {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    font-size: 32px;
-    color: $secondary-color;
-    font-family: "Quicksand", sans-serif;
-    font-weight: 600;
-    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
-    margin-top: 100px;
-  }
-
-  .imageUpload {
-    display: flex;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    justify-content: center;
-
-    #profileImage {
-      width: 100%;
-      height: 100%;
-      border: none;
-      padding: 0;
-      background: none;
-    }
-
-    #profileImage img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      &:hover {
-        transform: scale(1.1);
-      }
-    }
-  }
-
-  p {
-    font-family: "Quicksand", sans-serif;
-    font-weight: 600;
-    color: $secondary-color;
-    font-size: 16px;
-    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6352941176));
-    margin-top: 10px;
-  }
-}
-
-.rightContainer {
-  width: 50%;
-  height: 100%;
-
-  .checkRoles {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    width: 100%;
-    gap: 30px;
-
-    .role {
-      display: flex;
-      align-items: center;
-
-      justify-content: flex-start;
-      flex-direction: row;
-      color: $secondary-color;
-
-      font-size: 20px;
-      font-family: $first-fontFamily;
-      font-weight: 600;
-      margin-bottom: 20px;
-
-      input[type="radio"] {
-        width: 50px;
-        transform: scale(0.6);
-      }
-    }
-  }
-
-  .registrationForm {
-    height: 100%;
-    width: 100%;
+  .leftContainer {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    justify-content: center;
-    align-items: start;
-  }
-  ::placeholder {
-    color: $tertiary-color;
-    opacity: 1;
-  }
-  input {
-    width: 400px;
-    @include form;
-    padding-left: 20px;
+    align-items: center;
+    max-width: 50%;
+    width: auto;
+    height: auto;
+    text-align: center;
+
+    .accountCreationTitle {
+      margin: 0;
+      padding: 0;
+      padding-top: 2em;
+      text-align: center;
+      font-size: 2em;
+      color: $secondary-color;
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
+    }
+
+    .imageUpload {
+      display: flex;
+      width: 9em;
+      height: 9em;
+      border-radius: 50%;
+      overflow: hidden;
+      justify-content: center;
+
+      #profileImage {
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding: 0;
+        background: none;
+      }
+
+      #profileImage img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    p {
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      color: $secondary-color;
+      font-size: 1em;
+      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6352941176));
+      margin-top: 10px;
+    }
   }
 
-  button {
-    width: 200px;
+  .rightContainer {
+    box-sizing: border-box;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $tertiary-color;
-    @include form;
-  }
-  a {
-    text-decoration: none;
+    width: auto;
+    height: auto;
+
+    .checkRoles {
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      width: auto;
+      gap: 1em;
+
+      .role {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: row;
+        color: $secondary-color;
+        font-size: 1.25em;
+        font-family: $first-fontFamily;
+        font-weight: 600;
+        input[type="radio"] {
+          width: 3em;
+          transform: scale(0.6);
+        }
+      }
+    }
+
+    .registrationForm {
+      padding: 0;
+      margin: 0;
+      padding-bottom: 1em;
+      height: auto;
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25em;
+      justify-content: center;
+      align-items: start;
+
+      input {
+        width: 20em;
+        @include form;
+        padding-left: 1.25em;
+        ::placeholder {
+          color: $tertiary-color;
+          opacity: 1;
+        }
+      }
+      button {
+        width: 8em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $tertiary-color;
+        @include form;
+      }
+      a {
+        text-decoration: none;
+      }
+    }
   }
 }
 .rolesModal {
@@ -145,14 +154,14 @@
 .modalContent {
   background: $secondary-color;
   padding: 2rem;
-  border-radius: 10px;
-  max-width: 400px;
+  border-radius: 10%;
+  max-width: 20em;
   text-align: center;
   p {
     font-family: $first-fontFamily;
     color: $tertiary-color;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 1.25em;
   }
   h3 {
     font-family: $first-fontFamily;
@@ -162,6 +171,37 @@
   }
   button {
     @include brownButton;
-    padding: 5px 20px;
+    padding: 0.5em 1.25em;
+  }
+}
+
+@media (max-width: 768px) {
+  #inscriptionContent {
+    .leftContainer {
+      .accountCreationTitle {
+        font-size: 1.5em;
+      }
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  #inscriptionContent {
+    .rightContainer {
+      width: 100%;
+
+      .registrationForm {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        input {
+          width: 15em;
+          padding: 0;
+          text-align: center;
+        }
+      }
+    }
   }
 }

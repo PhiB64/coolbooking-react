@@ -5,11 +5,11 @@
   font-family: $first-fontFamily;
   font-weight: 600;
   color: $secondary-color;
-  padding: 10px 40px;
+  padding: 0.4em 1.5em;
   width: auto;
   height: auto;
   border: none;
-  border-radius: 20px;
+  border-radius: 1.25em;
   text-align: center;
   transition: background-color 0.3s ease;
   &:hover {
@@ -22,8 +22,8 @@
   background-color: $secondary-color;
   color: $primary-color;
   border: none;
-  border-radius: 20px;
-  padding: 10px 40px;
+  border-radius: 1.25em;
+  padding: 0.4em 1.5em;
   width: auto;
   height: auto;
   text-align: center;
@@ -42,9 +42,9 @@
   font-family: $first-fontFamily;
   font-weight: 700;
   border: none;
-  border-radius: 20px;
-  font-size: 20px;
-  height: 35px;
+  border-radius: 1.25em;
+  font-size: 1.25em;
+  height: 1.5em;
   transition: background-color 0.3s ease;
   &:hover {
     background-color: $whiteHover-color;

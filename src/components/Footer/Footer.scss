@@ -3,21 +3,24 @@
 
 footer {
   display: flex;
-  height: 10vh;
-  width: 100vw;
+  flex-wrap: wrap;
+  min-height: 10vh;
+  width: 100%;
   background-color: $secondary-color;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 
   .footerText {
-    font-size: 20px;
+    margin: 0.5em;
+    padding-right: 1.5em;
+    font-size: 1em;
     color: $tertiary-color;
     font-family: $first-fontFamily;
   }
 
   .donationButton {
     @include brownButton;
-    font-size: 20px;
+    font-size: 1em;
+    margin-bottom: 0.5em;
   }
 }

@@ -1,14 +1,16 @@
 footer {
   display: flex;
-  height: 10vh;
-  width: 100vw;
+  flex-wrap: wrap;
+  min-height: 10vh;
+  width: 100%;
   background-color: #ffffff;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
 footer .footerText {
-  font-size: 20px;
+  margin: 0.5em;
+  padding-right: 1.5em;
+  font-size: 1em;
   color: #7b5c4d;
   font-family: "Quicksand", sans-serif;
 }
@@ -17,14 +19,15 @@ footer .donationButton {
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   color: #ffffff;
-  padding: 10px 40px;
+  padding: 0.4em 1.5em;
   width: auto;
   height: auto;
   border: none;
-  border-radius: 20px;
+  border-radius: 1.25em;
   text-align: center;
   transition: background-color 0.3s ease;
-  font-size: 20px;
+  font-size: 1em;
+  margin-bottom: 0.5em;
 }
 footer .donationButton:hover {
   background-color: #644739;

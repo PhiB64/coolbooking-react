@@ -16,6 +16,7 @@ export default function Connection() {
         method: "POST",
         body: formData,
       });
+      console.log(response);
 
       if (!response.ok) {
         const errorText = await response.text();
@@ -26,12 +27,14 @@ export default function Connection() {
       console.log("Connexion réussie :", userData);
 
       const role = userData.role;
+      console.log("role:", role);
 
       const newUser = {
         name: userData.firstname,
         role: role,
         avatarUrl: userData.avatar || "/default-avatar.png",
       };
+      console.log("Avatar:", userData.avatar);
 
       // Enregistrement dans le contexte et dans le localStorage
       setUser(newUser);

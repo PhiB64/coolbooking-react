@@ -1,47 +1,51 @@
 #inscriptionContent {
   display: flex;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  height: 100%;
-  width: 100%;
+  min-height: 75vh;
+  height: auto;
+  width: 100vw;
+  justify-content: space-evenly;
   background-color: rgba(148, 111, 93, 0.8470588235);
 }
-
-.leftContainer {
+#inscriptionContent .leftContainer {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  max-width: 50%;
+  width: auto;
+  height: auto;
   text-align: center;
-  margin-left: 100px;
 }
-.leftContainer .accountCreationTitle {
+#inscriptionContent .leftContainer .accountCreationTitle {
   margin: 0;
   padding: 0;
+  padding-top: 2em;
   text-align: center;
-  font-size: 32px;
+  font-size: 2em;
   color: #ffffff;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
-  margin-top: 100px;
 }
-.leftContainer .imageUpload {
+#inscriptionContent .leftContainer .imageUpload {
   display: flex;
-  width: 150px;
-  height: 150px;
+  width: 9em;
+  height: 9em;
   border-radius: 50%;
   overflow: hidden;
   justify-content: center;
 }
-.leftContainer .imageUpload #profileImage {
+#inscriptionContent .leftContainer .imageUpload #profileImage {
   width: 100%;
   height: 100%;
   border: none;
   padding: 0;
   background: none;
 }
-.leftContainer .imageUpload #profileImage img {
+#inscriptionContent .leftContainer .imageUpload #profileImage img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -50,80 +54,84 @@
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-.leftContainer .imageUpload #profileImage img:hover {
+#inscriptionContent .leftContainer .imageUpload #profileImage img:hover {
   transform: scale(1.1);
 }
-.leftContainer p {
+#inscriptionContent .leftContainer p {
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 1em;
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6352941176));
   margin-top: 10px;
 }
-
-.rightContainer {
-  width: 50%;
-  height: 100%;
+#inscriptionContent .rightContainer {
+  box-sizing: border-box;
+  display: flex;
+  width: auto;
+  height: auto;
 }
-.rightContainer .checkRoles {
+#inscriptionContent .rightContainer .checkRoles {
+  flex-wrap: wrap;
   margin: 0;
   padding: 0;
   display: flex;
-  width: 100%;
-  gap: 30px;
+  width: auto;
+  gap: 1em;
 }
-.rightContainer .checkRoles .role {
+#inscriptionContent .rightContainer .checkRoles .role {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 1.25em;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
-  margin-bottom: 20px;
 }
-.rightContainer .checkRoles .role input[type=radio] {
-  width: 50px;
+#inscriptionContent .rightContainer .checkRoles .role input[type=radio] {
+  width: 3em;
   transform: scale(0.6);
 }
-.rightContainer .registrationForm {
-  height: 100%;
-  width: 100%;
+#inscriptionContent .rightContainer .registrationForm {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 1em;
+  height: auto;
+  width: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25em;
   justify-content: center;
   align-items: start;
 }
-.rightContainer ::-moz-placeholder {
-  color: #7b5c4d;
-  opacity: 1;
-}
-.rightContainer ::placeholder {
-  color: #7b5c4d;
-  opacity: 1;
-}
-.rightContainer input {
-  width: 400px;
+#inscriptionContent .rightContainer .registrationForm input {
+  width: 20em;
   display: flex;
   align-items: center;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
-  border-radius: 20px;
-  font-size: 20px;
-  height: 35px;
+  border-radius: 1.25em;
+  font-size: 1.25em;
+  height: 1.5em;
   transition: background-color 0.3s ease;
-  padding-left: 20px;
+  padding-left: 1.25em;
 }
-.rightContainer input:hover {
+#inscriptionContent .rightContainer .registrationForm input:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
-.rightContainer button {
-  width: 200px;
+#inscriptionContent .rightContainer .registrationForm input ::-moz-placeholder {
+  color: #7b5c4d;
+  opacity: 1;
+}
+#inscriptionContent .rightContainer .registrationForm input ::placeholder {
+  color: #7b5c4d;
+  opacity: 1;
+}
+#inscriptionContent .rightContainer .registrationForm button {
+  width: 8em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,16 +141,16 @@
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
-  border-radius: 20px;
-  font-size: 20px;
-  height: 35px;
+  border-radius: 1.25em;
+  font-size: 1.25em;
+  height: 1.5em;
   transition: background-color 0.3s ease;
 }
-.rightContainer button:hover {
+#inscriptionContent .rightContainer .registrationForm button:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
-.rightContainer a {
+#inscriptionContent .rightContainer .registrationForm a {
   text-decoration: none;
 }
 
@@ -162,15 +170,15 @@
 .modalContent {
   background: #ffffff;
   padding: 2rem;
-  border-radius: 10px;
-  max-width: 400px;
+  border-radius: 10%;
+  max-width: 20em;
   text-align: center;
 }
 .modalContent p {
   font-family: "Quicksand", sans-serif;
   color: #7b5c4d;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 1.25em;
 }
 .modalContent h3 {
   font-family: "Quicksand", sans-serif;
@@ -183,16 +191,38 @@
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   color: #ffffff;
-  padding: 10px 40px;
+  padding: 0.4em 1.5em;
   width: auto;
   height: auto;
   border: none;
-  border-radius: 20px;
+  border-radius: 1.25em;
   text-align: center;
   transition: background-color 0.3s ease;
-  padding: 5px 20px;
+  padding: 0.5em 1.25em;
 }
 .modalContent button:hover {
   background-color: #644739;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  #inscriptionContent .leftContainer .accountCreationTitle {
+    font-size: 1.5em;
+  }
+}
+@media (max-width: 430px) {
+  #inscriptionContent .rightContainer {
+    width: 100%;
+  }
+  #inscriptionContent .rightContainer .registrationForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #inscriptionContent .rightContainer .registrationForm input {
+    width: 15em;
+    padding: 0;
+    text-align: center;
+  }
 }/*# sourceMappingURL=Inscription.css.map */

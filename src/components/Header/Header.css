@@ -1,18 +1,20 @@
 header {
-  margin: 0;
-  padding: 0;
   display: flex;
-  height: 15vh;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  min-height: 15vh;
+  height: auto;
   width: 100vw;
+  justify-content: space-between;
   background-color: #ffffff;
 }
 header .navTitleContainer {
-  padding: 0;
+  padding-left: 2em;
   margin: 0;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-width: 50%;
+  height: auto;
   width: auto;
   justify-content: flex-end;
 }
@@ -20,8 +22,7 @@ header .navTitleContainer .navTitle {
   padding: 0;
   margin: 0;
   color: #7b5c4d;
-  font-size: 45px;
-  padding-left: 20px;
+  font-size: 2.5rem;
   font-family: "Jockey One", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -30,17 +31,18 @@ header .navTitleContainer .navSubTitle {
   padding: 0;
   margin: 0;
   color: #7b5c4d;
-  font-size: 20px;
-  padding-left: 20px;
-  padding-bottom: 20px;
+  font-size: 1.5em;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
 }
 header .navButtonContainer {
+  padding-right: 3em;
+  padding-bottom: 0.5em;
+  margin: 0;
+  gap: 0.5em;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-width: 50%;
+  height: auto;
   width: auto;
   justify-content: end;
   align-items: end;
@@ -49,9 +51,7 @@ header .navButtonContainer .avatar {
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  margin-bottom: 10px;
-  margin-right: 50px;
-  gap: 10px;
+  gap: 0.5em;
 }
 header .navButtonContainer .avatar .name {
   font-family: "Quicksand", sans-serif;
@@ -61,18 +61,21 @@ header .navButtonContainer .avatar .name {
 }
 header .navButtonContainer .avatar .photo {
   display: flex;
-  width: 50px;
-  height: 50px;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
   overflow: hidden;
   justify-content: center;
 }
 header .navButtonContainer .avatar .photo img {
-  width: 100px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.3s ease;
 }
 header .navButtonContainer .avatar .photo img:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 header .navButtonContainer .navButtons {
   display: flex;
@@ -82,18 +85,39 @@ header .navButtonContainer button {
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   color: #ffffff;
-  padding: 10px 40px;
+  padding: 0.4em 1.5em;
   width: auto;
   height: auto;
   border: none;
-  border-radius: 20px;
+  border-radius: 1.25em;
   text-align: center;
   transition: background-color 0.3s ease;
-  margin-right: 50px;
-  margin-bottom: 10px;
-  font-size: 25px;
+  font-size: 1.5em;
 }
 header .navButtonContainer button:hover {
   background-color: #644739;
   cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  header {
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  header .navTitleContainer {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+  header .navTitleContainer .navSubTitle {
+    display: none;
+  }
+  header .navButtonContainer {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 1em;
+  }
 }/*# sourceMappingURL=Header.css.map */

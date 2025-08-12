@@ -1,18 +1,20 @@
 header {
-  margin: 0;
-  padding: 0;
   display: flex;
-  height: 15vh;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  min-height: 15vh;
+  height: auto;
   width: 100vw;
+  justify-content: space-between;
   background-color: #ffffff;
 }
 header .navTitleContainer {
-  padding: 0;
+  padding-left: 2em;
   margin: 0;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-width: 50%;
+  height: auto;
   width: auto;
   justify-content: flex-end;
 }
@@ -20,8 +22,7 @@ header .navTitleContainer .navTitle {
   padding: 0;
   margin: 0;
   color: #7b5c4d;
-  font-size: 45px;
-  padding-left: 20px;
+  font-size: 2.5rem;
   font-family: "Jockey One", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -30,17 +31,18 @@ header .navTitleContainer .navSubTitle {
   padding: 0;
   margin: 0;
   color: #7b5c4d;
-  font-size: 20px;
-  padding-left: 20px;
-  padding-bottom: 20px;
+  font-size: 1.5em;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
 }
 header .navButtonContainer {
+  padding-right: 3em;
+  padding-bottom: 0.5em;
+  margin: 0;
+  gap: 0.5em;
   display: flex;
   flex-direction: column;
-  height: 100%;
-  min-width: 50%;
+  height: auto;
   width: auto;
   justify-content: end;
   align-items: end;
@@ -49,9 +51,7 @@ header .navButtonContainer .avatar {
   display: flex;
   width: 100%;
   justify-content: flex-end;
-  margin-bottom: 10px;
-  margin-right: 50px;
-  gap: 10px;
+  gap: 0.5em;
 }
 header .navButtonContainer .avatar .name {
   font-family: "Quicksand", sans-serif;
@@ -61,18 +61,21 @@ header .navButtonContainer .avatar .name {
 }
 header .navButtonContainer .avatar .photo {
   display: flex;
-  width: 50px;
-  height: 50px;
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
   overflow: hidden;
   justify-content: center;
 }
 header .navButtonContainer .avatar .photo img {
-  width: 100px;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: transform 0.3s ease;
 }
 header .navButtonContainer .avatar .photo img:hover {
-  transform: scale(1.5);
+  transform: scale(1.2);
 }
 header .navButtonContainer .navButtons {
   display: flex;
@@ -82,33 +85,51 @@ header .navButtonContainer button {
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   color: #ffffff;
-  padding: 10px 40px;
+  padding: 0.4em 1.5em;
   width: auto;
   height: auto;
   border: none;
-  border-radius: 20px;
+  border-radius: 1.25em;
   text-align: center;
   transition: background-color 0.3s ease;
-  margin-right: 50px;
-  margin-bottom: 10px;
-  font-size: 25px;
+  font-size: 1.5em;
 }
 header .navButtonContainer button:hover {
   background-color: #644739;
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  header {
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  header .navTitleContainer {
+    padding: 0;
+    margin: 0;
+  }
+  header .navButtonContainer {
+    padding: 0;
+    margin: 0;
+    padding-bottom: 1em;
+  }
+}
 footer {
   display: flex;
-  height: 10vh;
-  width: 100vw;
+  flex-wrap: wrap;
+  min-height: 10vh;
+  width: 100%;
   background-color: #ffffff;
   justify-content: center;
   align-items: center;
-  gap: 20px;
 }
 footer .footerText {
-  font-size: 20px;
+  margin: 0.5em;
+  padding-right: 1.5em;
+  font-size: 1em;
   color: #7b5c4d;
   font-family: "Quicksand", sans-serif;
 }
@@ -117,14 +138,15 @@ footer .donationButton {
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   color: #ffffff;
-  padding: 10px 40px;
+  padding: 0.4em 1.5em;
   width: auto;
   height: auto;
   border: none;
-  border-radius: 20px;
+  border-radius: 1.25em;
   text-align: center;
   transition: background-color 0.3s ease;
-  font-size: 20px;
+  font-size: 1em;
+  margin-bottom: 0.5em;
 }
 footer .donationButton:hover {
   background-color: #644739;
@@ -132,60 +154,63 @@ footer .donationButton:hover {
 }
 
 #homeContent {
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  height: 100%;
+  min-height: 75vh;
+  height: auto;
   width: 100%;
   background-color: rgba(148, 111, 93, 0.5019607843);
 }
 #homeContent .firstMainContainer {
-  padding: 0;
-  margin: 0;
   display: flex;
-  height: 50%;
-  width: 100%;
+  min-height: 32vh;
+  height: auto;
+  width: 90%;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: end;
+  justify-content: center;
 }
 #homeContent .firstMainContainer .webSiteName {
   padding: 0;
   margin: 0;
+  padding-right: 3.9em;
   font-family: "Jockey One", sans-serif;
   font-weight: 400;
   font-style: normal;
   color: #ffffff;
-  font-size: 60px;
+  font-size: 3em;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
-  margin-right: 400px;
-  margin-top: 90px;
 }
 #homeContent .firstMainContainer .firstDescription {
   padding: 0;
   margin: 0;
-  margin-right: 165px;
   color: #ffffff;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
-  font-size: 40px;
+  font-size: 2em;
+  text-align: left;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
 }
 #homeContent .secondMainContainer {
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
   display: flex;
   flex-direction: column;
+  justify-content: end;
   width: 100%;
-  height: 50%;
-  justify-content: flex-end;
-  gap: 10px;
+  min-height: 32vh;
+  height: auto;
+  align-items: start;
+  gap: 1em;
 }
 #homeContent .secondMainContainer .secondDescription {
   margin: 0;
-  padding: 0;
+  padding-left: 3em;
   text-align: left;
-  font-size: 32px;
-  line-height: 50px;
-  padding-left: 260px;
+  font-size: 2em;
+  line-height: 1.5em;
   color: #ffffff;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
@@ -195,23 +220,35 @@ footer .donationButton:hover {
   background-color: #ffffff;
   color: #946f5d;
   border: none;
-  border-radius: 20px;
-  padding: 10px 40px;
+  border-radius: 1.25em;
+  padding: 0.4em 1.5em;
   width: auto;
   height: auto;
   text-align: center;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   transition: background-color 0.3s ease;
-  margin-left: 260px;
-  margin-bottom: 100px;
-  font-size: 25px;
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  margin-left: 4em;
 }
 #homeContent .secondMainContainer .inscriptionButton:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  #homeContent .firstMainContainer .secondMainContainer .webSiteName .firstDescription .secondDescription .inscriptionButton {
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+}
 #accountContent {
   padding: 0;
   margin: 0;
@@ -230,28 +267,31 @@ footer .donationButton:hover {
 
 #connectionContent {
   display: flex;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  height: 100%;
-  width: 100%;
+  min-height: 75vh;
+  height: auto;
+  width: 100vw;
+  justify-content: space-evenly;
   background-color: rgba(148, 111, 93, 0.8470588235);
 }
 #connectionContent .firstContainer {
   display: flex;
   padding: 0;
   margin: 0;
-  height: 100%;
-  width: 50%;
+  height: auto;
+  width: auto;
 }
 #connectionContent .firstContainer .connectionTitle {
   padding: 0;
   margin: 0;
-  width: 100%;
-  height: 30%;
+  width: auto;
+  height: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 32px;
+  font-size: 2em;
   color: #ffffff;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
@@ -260,13 +300,15 @@ footer .donationButton:hover {
 #connectionContent .secondContainer {
   display: flex;
   align-items: center;
+  height: auto;
+  width: auto;
 }
 #connectionContent .secondContainer .registrationForm {
-  height: 100%;
-  width: 100%;
+  height: auto;
+  width: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25em;
   justify-content: center;
   align-items: start;
 }
@@ -279,24 +321,24 @@ footer .donationButton:hover {
   opacity: 1;
 }
 #connectionContent .secondContainer input {
-  width: 400px;
+  width: 20em;
   display: flex;
   align-items: center;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
-  border-radius: 20px;
-  font-size: 20px;
-  height: 35px;
+  border-radius: 1.25em;
+  font-size: 1.25em;
+  height: 1.5em;
   transition: background-color 0.3s ease;
-  padding-left: 20px;
+  padding-left: 1.25em;
 }
 #connectionContent .secondContainer input:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
 #connectionContent .secondContainer button {
-  width: 200px;
+  width: 6em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -306,9 +348,9 @@ footer .donationButton:hover {
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
-  border-radius: 20px;
-  font-size: 20px;
-  height: 35px;
+  border-radius: 1.25em;
+  font-size: 1.25em;
+  height: 1.5em;
   transition: background-color 0.3s ease;
 }
 #connectionContent .secondContainer button:hover {
@@ -375,17 +417,6 @@ ul .link {
 ul .link:hover {
   color: #cccccc;
   cursor: pointer;
-}
-
-.link {
-  text-decoration: none;
-}
-
-.link:visited,
-.link:active,
-.link:hover,
-.link:focus {
-  text-decoration: none;
 }
 
 #tenantPageContent {
@@ -459,8 +490,8 @@ ul .link:hover {
   background-color: #ffffff;
   color: #946f5d;
   border: none;
-  border-radius: 20px;
-  padding: 10px 40px;
+  border-radius: 1.25em;
+  padding: 0.4em 1.5em;
   width: auto;
   height: auto;
   text-align: center;
@@ -494,48 +525,52 @@ ul .link:hover {
 
 #inscriptionContent {
   display: flex;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  height: 100%;
-  width: 100%;
+  min-height: 75vh;
+  height: auto;
+  width: 100vw;
+  justify-content: space-evenly;
   background-color: rgba(148, 111, 93, 0.8470588235);
 }
-
-.leftContainer {
+#inscriptionContent .leftContainer {
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  max-width: 50%;
+  width: auto;
+  height: auto;
   text-align: center;
-  margin-left: 100px;
 }
-.leftContainer .accountCreationTitle {
+#inscriptionContent .leftContainer .accountCreationTitle {
   margin: 0;
   padding: 0;
+  padding-top: 2em;
   text-align: center;
-  font-size: 32px;
+  font-size: 2em;
   color: #ffffff;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
-  margin-top: 100px;
 }
-.leftContainer .imageUpload {
+#inscriptionContent .leftContainer .imageUpload {
   display: flex;
-  width: 150px;
-  height: 150px;
+  width: 9em;
+  height: 9em;
   border-radius: 50%;
   overflow: hidden;
   justify-content: center;
 }
-.leftContainer .imageUpload #profileImage {
+#inscriptionContent .leftContainer .imageUpload #profileImage {
   width: 100%;
   height: 100%;
   border: none;
   padding: 0;
   background: none;
 }
-.leftContainer .imageUpload #profileImage img {
+#inscriptionContent .leftContainer .imageUpload #profileImage img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
@@ -544,80 +579,83 @@ ul .link:hover {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-.leftContainer .imageUpload #profileImage img:hover {
+#inscriptionContent .leftContainer .imageUpload #profileImage img:hover {
   transform: scale(1.1);
 }
-.leftContainer p {
+#inscriptionContent .leftContainer p {
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   color: #ffffff;
-  font-size: 16px;
+  font-size: 1em;
   filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.6352941176));
   margin-top: 10px;
 }
-
-.rightContainer {
-  width: 50%;
-  height: 100%;
+#inscriptionContent .rightContainer {
+  box-sizing: border-box;
+  display: flex;
+  width: auto;
+  height: auto;
 }
-.rightContainer .checkRoles {
+#inscriptionContent .rightContainer .checkRoles {
   margin: 0;
   padding: 0;
   display: flex;
-  width: 100%;
-  gap: 30px;
+  width: auto;
+  gap: 1em;
 }
-.rightContainer .checkRoles .role {
+#inscriptionContent .rightContainer .checkRoles .role {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   flex-direction: row;
   color: #ffffff;
-  font-size: 20px;
+  font-size: 1.25em;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
-  margin-bottom: 20px;
 }
-.rightContainer .checkRoles .role input[type=radio] {
-  width: 50px;
+#inscriptionContent .rightContainer .checkRoles .role input[type=radio] {
+  width: 3em;
   transform: scale(0.6);
 }
-.rightContainer .registrationForm {
-  height: 100%;
-  width: 100%;
+#inscriptionContent .rightContainer .registrationForm {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 1em;
+  height: auto;
+  width: auto;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25em;
   justify-content: center;
   align-items: start;
 }
-.rightContainer ::-moz-placeholder {
-  color: #7b5c4d;
-  opacity: 1;
-}
-.rightContainer ::placeholder {
-  color: #7b5c4d;
-  opacity: 1;
-}
-.rightContainer input {
-  width: 400px;
+#inscriptionContent .rightContainer .registrationForm input {
+  width: 20em;
   display: flex;
   align-items: center;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
-  border-radius: 20px;
-  font-size: 20px;
-  height: 35px;
+  border-radius: 1.25em;
+  font-size: 1.25em;
+  height: 1.5em;
   transition: background-color 0.3s ease;
-  padding-left: 20px;
+  padding-left: 1.25em;
 }
-.rightContainer input:hover {
+#inscriptionContent .rightContainer .registrationForm input:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
-.rightContainer button {
-  width: 200px;
+#inscriptionContent .rightContainer .registrationForm input ::-moz-placeholder {
+  color: #7b5c4d;
+  opacity: 1;
+}
+#inscriptionContent .rightContainer .registrationForm input ::placeholder {
+  color: #7b5c4d;
+  opacity: 1;
+}
+#inscriptionContent .rightContainer .registrationForm button {
+  width: 8em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -627,16 +665,16 @@ ul .link:hover {
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
-  border-radius: 20px;
-  font-size: 20px;
-  height: 35px;
+  border-radius: 1.25em;
+  font-size: 1.25em;
+  height: 1.5em;
   transition: background-color 0.3s ease;
 }
-.rightContainer button:hover {
+#inscriptionContent .rightContainer .registrationForm button:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
-.rightContainer a {
+#inscriptionContent .rightContainer .registrationForm a {
   text-decoration: none;
 }
 
@@ -656,15 +694,15 @@ ul .link:hover {
 .modalContent {
   background: #ffffff;
   padding: 2rem;
-  border-radius: 10px;
-  max-width: 400px;
+  border-radius: 10%;
+  max-width: 20em;
   text-align: center;
 }
 .modalContent p {
   font-family: "Quicksand", sans-serif;
   color: #7b5c4d;
   font-weight: 700;
-  font-size: 17px;
+  font-size: 1.25em;
 }
 .modalContent h3 {
   font-family: "Quicksand", sans-serif;
@@ -677,20 +715,32 @@ ul .link:hover {
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   color: #ffffff;
-  padding: 10px 40px;
+  padding: 0.4em 1.5em;
   width: auto;
   height: auto;
   border: none;
-  border-radius: 20px;
+  border-radius: 1.25em;
   text-align: center;
   transition: background-color 0.3s ease;
-  padding: 5px 20px;
+  padding: 0.5em 1.25em;
 }
 .modalContent button:hover {
   background-color: #644739;
   cursor: pointer;
 }
 
+@media (max-width: 425px) {
+  input {
+    font-size: 0.875rem;
+    width: 8em;
+  }
+  input::-moz-placeholder {
+    font-size: inherit;
+  }
+  input::placeholder {
+    font-size: inherit;
+  }
+}
 #adCreationContent {
   padding: 0;
   margin: 0;
@@ -712,18 +762,18 @@ body {
   padding: 0;
   height: 100vh;
   width: 100vw;
-  background-image: url("/src/assets/Background.webp");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .mainContent {
   padding: 0;
   margin: 0;
-  height: 75vh;
+  min-height: 75vh;
+  height: auto;
   width: 100vw;
-  overflow: hidden;
+  background-image: url("/src/assets/Background.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a {

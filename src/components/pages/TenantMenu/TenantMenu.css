@@ -1,38 +1,37 @@
 #tenantMenuContent {
   display: flex;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  height: 100%;
+  min-height: 75vh;
+  height: auto;
   width: 100%;
-  background-color: rgba(148, 111, 93, 0.8470588235);
   justify-content: center;
   align-items: center;
+  background-color: rgba(148, 111, 93, 0.5960784314);
 }
-
-ul {
+#tenantMenuContent ul {
   padding: 0;
   margin: 0;
   height: auto;
-  width: auto;
+  width: -moz-fit-content;
+  width: fit-content;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-ul .link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+  flex-direction: column;
+}
+#tenantMenuContent ul .link {
   padding: 0;
   margin: 0;
-  font-size: 25px;
+  font-size: 1.25em;
+  line-height: 1.5em;
   color: #ffffff;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
   transition: background-color 0.3s ease;
 }
-ul .link:hover {
+#tenantMenuContent ul .link:hover {
   color: #cccccc;
   cursor: pointer;
 }/*# sourceMappingURL=TenantMenu.css.map */

@@ -3,11 +3,39 @@
 
 #ownerMenuContent {
   display: flex;
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  height: 100%;
+  min-height: 75vh;
+  height: auto;
   width: 100%;
-  background-color: $thirdFilter-color;
   justify-content: center;
   align-items: center;
+  background-color: $secondFilter-color;
+
+  ul {
+    padding: 0;
+    margin: 0;
+    height: auto;
+    width: fit-content;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+
+    .link {
+      padding: 0;
+      margin: 0;
+      font-size: 1.25em;
+      line-height: 1.5em;
+      color: $secondary-color;
+      font-family: "Quicksand", sans-serif;
+      font-weight: 600;
+      filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
+      transition: background-color 0.3s ease;
+      &:hover {
+        color: $whiteHover-color;
+        cursor: pointer;
+      }
+    }
+  }
 }

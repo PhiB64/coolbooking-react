@@ -1,1 +1,1 @@
-{"version":3,"sources":["OwnerPage.scss","../../../style/variables/variables.scss","OwnerPage.css"],"names":[],"mappings":"AAGA;EACE,UAAA;EACA,SAAA;EACA,YAAA;EACA,WAAA;EACA,kDCJkB;ACEpB","file":"OwnerPage.css"}
+{"version":3,"sources":["OwnerPage.scss","../../../style/variables/variables.scss","OwnerPage.css"],"names":[],"mappings":"AAGA;EACE,eAAA;EACA,UAAA;EACA,SAAA;EACA,gBAAA;EACA,YAAA;EACA,WAAA;EACA,kDCNkB;ACIpB","file":"OwnerPage.css"}

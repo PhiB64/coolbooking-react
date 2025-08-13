@@ -2,9 +2,11 @@
 @use "../../../style/mixin/mixin.scss" as *;
 
 #favoritesContent {
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
-  height: 100%;
+  min-height: 75vh;
+  height: auto;
   width: 100%;
   background-color: $firstFilter-color;
 }

@@ -49,7 +49,7 @@ header {
     flex-direction: column;
     height: auto;
     width: auto;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: end;
 
     .avatar {
@@ -87,6 +87,7 @@ header {
     }
     .navButtons {
       display: flex;
+      gap: 2em;
     }
     button {
       @include brownButton;
@@ -102,6 +103,8 @@ header {
     align-content: center;
     align-items: center;
     text-align: center;
+    padding: 0;
+    margin: 0;
 
     .navTitleContainer {
       padding: 0;
@@ -114,9 +117,31 @@ header {
     }
 
     .navButtonContainer {
+      gap: 2em;
       padding: 0;
       margin: 0;
-      padding-bottom: 1em;
+      padding-bottom: 0.5em;
+      width: auto;
+      flex-direction: row-reverse;
+      align-items: center;
+
+      button {
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  header {
+    .navButtonContainer {
+      font-size: 0.8em;
+      .navButtons {
+        gap: 1em;
+      }
+      .avatar {
+        display: none;
+      }
     }
   }
 }

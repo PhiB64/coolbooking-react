@@ -44,7 +44,7 @@ header .navButtonContainer {
   flex-direction: column;
   height: auto;
   width: auto;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: end;
 }
 header .navButtonContainer .avatar {
@@ -79,6 +79,7 @@ header .navButtonContainer .avatar .photo img:hover {
 }
 header .navButtonContainer .navButtons {
   display: flex;
+  gap: 2em;
 }
 header .navButtonContainer button {
   background-color: #946f5d;
@@ -106,6 +107,8 @@ header .navButtonContainer button:hover {
     align-content: center;
     align-items: center;
     text-align: center;
+    padding: 0;
+    margin: 0;
   }
   header .navTitleContainer {
     padding: 0;
@@ -116,8 +119,26 @@ header .navButtonContainer button:hover {
     display: none;
   }
   header .navButtonContainer {
+    gap: 2em;
     padding: 0;
     margin: 0;
-    padding-bottom: 1em;
+    padding-bottom: 0.5em;
+    width: auto;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  header .navButtonContainer button {
+    white-space: nowrap;
+  }
+}
+@media (max-width: 430px) {
+  header .navButtonContainer {
+    font-size: 0.8em;
+  }
+  header .navButtonContainer .navButtons {
+    gap: 1em;
+  }
+  header .navButtonContainer .avatar {
+    display: none;
   }
 }/*# sourceMappingURL=Header.css.map */

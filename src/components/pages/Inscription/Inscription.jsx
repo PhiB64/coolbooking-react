@@ -29,10 +29,14 @@ export default function Inscription() {
     const formData = new FormData(event.target);
 
     try {
-      const response = await fetch("http://localhost:3000/users/register", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACK}/users/register`,
+
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
       if (!response.ok) {
         const errorText = await response.text();

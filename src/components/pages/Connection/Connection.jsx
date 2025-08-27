@@ -12,7 +12,7 @@ export default function Connection() {
     const formData = new FormData(event.target);
 
     try {
-      const response = await fetch("http://localhost:3000/users/login", {
+      const response = await fetch(`${import.meta.env.VITE_BACK}/users/login`, {
         method: "POST",
         body: formData,
         credentials: "include",

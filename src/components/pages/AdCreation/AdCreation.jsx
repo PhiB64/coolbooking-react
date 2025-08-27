@@ -28,7 +28,9 @@ export default function AdCreation() {
     if (/^\d{5}$/.test(code)) {
       try {
         const res = await fetch(
-          `https://geo.api.gouv.fr/communes?codePostal=${code}&fields=nom,codeDepartement,region&format=json`
+          `${
+            import.meta.env.VITE_GOUV_LOCATION
+          }/communes?codePostal=${code}&fields=nom,codeDepartement,region&format=json`
         );
         const data = await res.json();
 
@@ -37,7 +39,9 @@ export default function AdCreation() {
           setLocationReady(true);
 
           const deptRes = await fetch(
-            `https://geo.api.gouv.fr/departements/${data[0].codeDepartement}`
+            `${import.meta.env.VITE_GOUV_LOCATION}/departements/${
+              data[0].codeDepartement
+            }`
           );
           const deptData = await deptRes.json();
 
@@ -60,11 +64,14 @@ export default function AdCreation() {
     const formData = new FormData(e.target);
 
     try {
-      const response = await fetch("http://localhost:3000/rentals/create", {
-        method: "POST",
-        body: formData,
-        credentials: "include",
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACK}/rentals/create`,
+        {
+          method: "POST",
+          body: formData,
+          credentials: "include",
+        }
+      );
 
       if (response.ok) {
         setFormStatus("Bien créé avec succès !");

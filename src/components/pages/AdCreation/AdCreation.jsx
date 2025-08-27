@@ -7,6 +7,8 @@ export default function AdCreation() {
   const [postalCode, setPostalCode] = useState("");
   const [communes, setCommunes] = useState([]);
   const [locationReady, setLocationReady] = useState(false);
+  const [department, setDepartment] = useState("");
+  const [region, setRegion] = useState("");
 
   const handleImagePreview = (e) => {
     const { name, files } = e.target;
@@ -19,11 +21,21 @@ export default function AdCreation() {
     }
   };
 
+  const removePreview = (name) => {
+    setPreviews((prev) => {
+      const updated = { ...prev };
+      delete updated[name];
+      return updated;
+    });
+  };
+
   const handlePostalCodeChange = async (e) => {
     const code = e.target.value;
     setPostalCode(code);
     setCommunes([]);
     setLocationReady(false);
+    setDepartment("");
+    setRegion("");
 
     if (/^\d{5}$/.test(code)) {
       try {
@@ -45,10 +57,8 @@ export default function AdCreation() {
           );
           const deptData = await deptRes.json();
 
-          document.querySelector('[name="address.department"]').value =
-            deptData.nom;
-          document.querySelector('[name="address.region"]').value =
-            data[0].region.nom;
+          setDepartment(deptData.nom);
+          setRegion(data[0].region.nom);
         }
       } catch (err) {
         console.error("Erreur localisation :", err);
@@ -80,6 +90,8 @@ export default function AdCreation() {
         setPostalCode("");
         setCommunes([]);
         setLocationReady(false);
+        setDepartment("");
+        setRegion("");
       } else {
         const error = await response.json();
         setFormStatus(`Erreur : ${error.error}`);
@@ -97,6 +109,7 @@ export default function AdCreation() {
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <div className="firstRentalContainer">
             <h2 id="adCreationTitle">Je créé mon annonce</h2>
+
             <label htmlFor="rentalName">Nom du logement :</label>
             <input
               type="text"
@@ -120,6 +133,12 @@ export default function AdCreation() {
             />
             <input type="hidden" name="address.codePostal" value={postalCode} />
 
+            {postalCode.length === 5 && communes.length === 0 && (
+              <p className="error">
+                Aucune commune trouvée pour ce code postal.
+              </p>
+            )}
+
             {locationReady && (
               <>
                 <label htmlFor="addressCity">Ville :</label>
@@ -137,9 +156,9 @@ export default function AdCreation() {
                   type="text"
                   id="addressDepartment"
                   name="address.department"
-                  maxLength="30"
-                  required
+                  value={department}
                   readOnly
+                  required
                 />
 
                 <label htmlFor="addressRegion">Région :</label>
@@ -147,12 +166,13 @@ export default function AdCreation() {
                   type="text"
                   id="addressRegion"
                   name="address.region"
-                  maxLength="30"
-                  required
+                  value={region}
                   readOnly
+                  required
                 />
               </>
             )}
+
             <div id="checkboxes">
               <label>
                 <input
@@ -192,11 +212,19 @@ export default function AdCreation() {
                 />
                 <label htmlFor="image_1" className="upload-zone">
                   {previews["image_1"] ? (
-                    <img
-                      src={previews["image_1"]}
-                      alt="Prévisualisation principale"
-                      className="preview-img"
-                    />
+                    <>
+                      <img
+                        src={previews["image_1"]}
+                        alt="Prévisualisation principale"
+                        className="preview-img"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => removePreview("image_1")}
+                      >
+                        Supprimer
+                      </button>
+                    </>
                   ) : (
                     <div className="placeholder">Image principale</div>
                   )}
@@ -216,11 +244,19 @@ export default function AdCreation() {
                     />
                     <label htmlFor={`image_${i}`} className="upload-zone">
                       {previews[`image_${i}`] ? (
-                        <img
-                          src={previews[`image_${i}`]}
-                          alt={`Prévisualisation ${i}`}
-                          className="preview-img"
-                        />
+                        <>
+                          <img
+                            src={previews[`image_${i}`]}
+                            alt={`Prévisualisation ${i}`}
+                            className="preview-img"
+                          />
+                          <button
+                            type="button"
+                            onClick={() => removePreview(`image_${i}`)}
+                          >
+                            Supprimer
+                          </button>
+                        </>
                       ) : (
                         <div className="placeholder">Image {i}</div>
                       )}

@@ -30,7 +30,7 @@ export default function Inscription() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACK}/users/register`,
+        `${import.meta.env.VITE_BACKEND}/users/register`,
 
         {
           method: "POST",

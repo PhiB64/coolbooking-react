@@ -65,7 +65,7 @@ export default function AdCreation() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACK}/rentals/create`,
+        `${import.meta.env.VITE_BACKENDEND}/rentals/create`,
         {
           method: "POST",
           body: formData,

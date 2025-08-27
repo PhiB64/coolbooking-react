@@ -12,11 +12,14 @@ export default function Connection() {
     const formData = new FormData(event.target);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_BACK}/users/login`, {
-        method: "POST",
-        body: formData,
-        credentials: "include",
-      });
+      const response = await fetch(
+        `${import.meta.env.VITE_BACKEND}/users/login`,
+        {
+          method: "POST",
+          body: formData,
+          credentials: "include",
+        }
+      );
       console.log(response);
 
       if (!response.ok) {

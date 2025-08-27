@@ -40,28 +40,19 @@ export default function AdCreation() {
     if (/^\d{5}$/.test(code)) {
       try {
         const res = await fetch(
-          `${
-            import.meta.env.VITE_GOUV_LOCATION
-          }/communes?codePostal=${code}&fields=nom,codeDepartement,region&format=json`
+          `${import.meta.env.VITE_BACKENDEND}/api/location?codePostal=${code}`,
+          { credentials: "include" }
         );
         const data = await res.json();
 
-        if (data.length > 0) {
-          setCommunes(data);
+        if (data.communes?.length > 0) {
+          setCommunes(data.communes);
+          setDepartment(data.departement);
+          setRegion(data.region);
           setLocationReady(true);
-
-          const deptRes = await fetch(
-            `${import.meta.env.VITE_GOUV_LOCATION}/departements/${
-              data[0].codeDepartement
-            }`
-          );
-          const deptData = await deptRes.json();
-
-          setDepartment(deptData.nom);
-          setRegion(data[0].region.nom);
         }
       } catch (err) {
-        console.error("Erreur localisation :", err);
+        console.error("Erreur localisation combinée :", err);
       }
     }
   };

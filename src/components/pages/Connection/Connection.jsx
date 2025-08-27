@@ -15,6 +15,7 @@ export default function Connection() {
       const response = await fetch("http://localhost:3000/users/login", {
         method: "POST",
         body: formData,
+        credentials: "include",
       });
       console.log(response);
 

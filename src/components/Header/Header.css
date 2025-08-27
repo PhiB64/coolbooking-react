@@ -82,6 +82,7 @@ header .navButtonContainer .navButtons {
   gap: 2em;
 }
 header .navButtonContainer button {
+  display: flex;
   background-color: #946f5d;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;

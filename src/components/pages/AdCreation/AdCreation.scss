@@ -3,10 +3,217 @@
 
 #adCreationContent {
   flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
   min-height: 75vh;
   height: auto;
   width: 100%;
-  background-color: $firstFilter-color;
+  background-color: $secondFilter-color;
+  font-family: $first-fontFamily;
+  font-weight: 600;
+
+  form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2em;
+
+    input:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+      -webkit-text-fill-color: $tertiary-color !important;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    .firstRentalContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 30%;
+      width: auto;
+      height: auto;
+      gap: 0.5em;
+
+      #adCreationTitle {
+        margin: 0;
+        padding: 0;
+        padding-top: 0.5em;
+        text-align: start;
+        font-size: 2em;
+        color: $secondary-color;
+        font-family: "Quicksand", sans-serif;
+        font-weight: 600;
+        filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
+      }
+
+      label {
+        color: $secondary-color;
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        font-size: 1rem;
+        font-family: $first-fontFamily;
+        font-weight: 600;
+      }
+
+      #rentalName {
+        width: 30em;
+        height: 2em;
+        border-radius: 25px;
+        border: none;
+        font-family: $first-fontFamily;
+        font-weight: 600;
+        font-size: 1em;
+        color: $tertiary-color;
+        text-align: center;
+      }
+
+      #beds {
+        width: 3em;
+        height: 2em;
+        border: none;
+        padding-left: 1em;
+        font-family: $first-fontFamily;
+        font-weight: 600;
+        font-size: 1em;
+        color: $tertiary-color;
+      }
+    }
+
+    #postalCode {
+      font-size: 1rem;
+      width: 6em;
+      height: 2em;
+      border-radius: 25px;
+      border: none;
+      color: $tertiary-color;
+      font-family: $first-fontFamily;
+      font-weight: 600;
+      text-align: center;
+    }
+    #addressCity,
+    #addressDepartment,
+    #addressRegion,
+    option {
+      font-size: 1rem;
+      width: 15em;
+      height: 2em;
+      border-radius: 25px;
+      border: none;
+      color: $tertiary-color;
+      font-family: $first-fontFamily;
+      font-weight: 600;
+      text-align: center;
+    }
+    #checkboxes {
+      margin-top: 1em;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1em;
+
+      .checkbox {
+        height: 1.5em;
+        width: 1.5em;
+      }
+    }
+    .secondRentalContainer {
+      display: flex;
+      flex-direction: column;
+      min-width: 50%;
+      width: auto;
+      height: auto;
+      align-items: center;
+
+      span {
+        padding-top: 2em;
+        color: $secondary-color;
+        line-height: 0;
+        font-size: 1rem;
+        font-family: $first-fontFamily;
+        font-weight: 600;
+      }
+
+      #description {
+        padding: 1em;
+        min-width: 55em;
+        width: auto;
+        height: 6em;
+        border-radius: 8px;
+        border: none;
+        font-size: 1rem;
+        color: $tertiary-color;
+        font-family: $first-fontFamily;
+        font-weight: 600;
+      }
+      #description::placeholder {
+        color: $tertiary-color;
+        font-family: $first-fontFamily;
+        opacity: 1;
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .rentalImages {
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        .upload-zone {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: $secondary-color;
+          transition: background-color 0.3s ease;
+          &:hover {
+            background-color: $whiteHover-color;
+            cursor: pointer;
+          }
+          margin: 1em;
+          border-radius: 8px;
+        }
+
+        .mainImage .upload-zone {
+          width: 550px;
+          height: 332px;
+          overflow: hidden;
+          .preview-img {
+            height: 340px;
+          }
+        }
+
+        .image-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+
+          .secondaryImage .upload-zone {
+            width: 150px;
+            height: 150px;
+            overflow: hidden;
+            .preview-img {
+              height: 150px;
+            }
+          }
+        }
+        .placeholder {
+          font-size: 1rem;
+          color: $tertiary-color;
+          text-align: center;
+        }
+      }
+      button {
+        margin-top: 1em;
+        @include whiteButton;
+        padding-right: 12em;
+        padding-left: 12em;
+        font-size: 1.25em;
+      }
+    }
+  }
+}
+.form-status {
+  color: $secondary-color;
 }

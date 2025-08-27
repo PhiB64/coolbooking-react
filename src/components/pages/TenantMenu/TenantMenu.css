@@ -11,7 +11,7 @@
   background-color: rgba(148, 111, 93, 0.5960784314);
 }
 #tenantMenuContent ul {
-  padding: 0;
+  padding: 0.5em;
   margin: 0;
   height: auto;
   width: -moz-fit-content;

@@ -119,11 +119,8 @@
         width: 20em;
         @include form;
         padding-left: 1.25em;
-        ::placeholder {
-          color: $tertiary-color;
-          opacity: 1;
-        }
       }
+
       button {
         width: 8em;
         display: flex;
@@ -204,4 +201,9 @@
       }
     }
   }
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: $tertiary-color !important;
+  transition: background-color 5000s ease-in-out 0s;
 }

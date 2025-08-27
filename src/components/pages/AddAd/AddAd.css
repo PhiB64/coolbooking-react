@@ -25,6 +25,7 @@
 #addAdContent .addAdButton {
   display: flex;
   gap: 1em;
+  display: flex;
   background-color: #ffffff;
   color: #946f5d;
   border: none;

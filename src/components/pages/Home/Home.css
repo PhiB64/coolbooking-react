@@ -62,6 +62,7 @@
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
 }
 #homeContent .secondMainContainer .inscriptionButton {
+  display: flex;
   background-color: #ffffff;
   color: #946f5d;
   border: none;
@@ -100,7 +101,7 @@
   #homeContent .secondMainContainer .firstDescription,
   #homeContent .secondMainContainer .secondDescription {
     margin: 0;
-    padding: 0;
+    padding: 0.5em;
     text-align: center;
     font-size: 1.5em;
   }
@@ -108,5 +109,11 @@
   #homeContent .secondMainContainer .inscriptionButton {
     margin: 0;
     margin-bottom: 1em;
+  }
+}
+@media (max-width: 430px) {
+  #homeContent .secondMainContainer .inscriptionButton {
+    font-size: 1.25em;
+    padding: 0.5em 0.5em;
   }
 }/*# sourceMappingURL=Home.css.map */

@@ -91,13 +91,23 @@
       .firstDescription,
       .secondDescription {
         margin: 0;
-        padding: 0;
+        padding: 0.5em;
         text-align: center;
         font-size: 1.5em;
       }
       .inscriptionButton {
         margin: 0;
         margin-bottom: 1em;
+      }
+    }
+  }
+}
+@media (max-width: 430px) {
+  #homeContent {
+    .secondMainContainer {
+      .inscriptionButton {
+        font-size: 1.25em;
+        padding: 0.5em 0.5em;
       }
     }
   }

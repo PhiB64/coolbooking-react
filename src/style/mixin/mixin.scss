@@ -39,6 +39,7 @@
 @mixin form {
   display: flex;
   align-items: center;
+  color: $tertiary-color;
   font-family: $first-fontFamily;
   font-weight: 700;
   border: none;
@@ -49,5 +50,8 @@
   &:hover {
     background-color: $whiteHover-color;
     cursor: pointer;
+  }
+  &::placeholder {
+    color: $tertiary-color;
   }
 }

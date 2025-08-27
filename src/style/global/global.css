@@ -44,7 +44,7 @@ header .navButtonContainer {
   flex-direction: column;
   height: auto;
   width: auto;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: end;
 }
 header .navButtonContainer .avatar {
@@ -79,8 +79,10 @@ header .navButtonContainer .avatar .photo img:hover {
 }
 header .navButtonContainer .navButtons {
   display: flex;
+  gap: 2em;
 }
 header .navButtonContainer button {
+  display: flex;
   background-color: #946f5d;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
@@ -106,6 +108,8 @@ header .navButtonContainer button:hover {
     align-content: center;
     align-items: center;
     text-align: center;
+    padding: 0;
+    margin: 0;
   }
   header .navTitleContainer {
     padding: 0;
@@ -116,9 +120,27 @@ header .navButtonContainer button:hover {
     display: none;
   }
   header .navButtonContainer {
+    gap: 2em;
     padding: 0;
     margin: 0;
-    padding-bottom: 1em;
+    padding-bottom: 0.5em;
+    width: auto;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  header .navButtonContainer button {
+    white-space: nowrap;
+  }
+}
+@media (max-width: 430px) {
+  header .navButtonContainer {
+    font-size: 0.8em;
+  }
+  header .navButtonContainer .navButtons {
+    gap: 1em;
+  }
+  header .navButtonContainer .avatar {
+    display: none;
   }
 }
 footer {
@@ -138,6 +160,7 @@ footer .footerText {
   font-family: "Quicksand", sans-serif;
 }
 footer .donationButton {
+  display: flex;
   background-color: #946f5d;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
@@ -221,6 +244,7 @@ footer .donationButton:hover {
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
 }
 #homeContent .secondMainContainer .inscriptionButton {
+  display: flex;
   background-color: #ffffff;
   color: #946f5d;
   border: none;
@@ -259,7 +283,7 @@ footer .donationButton:hover {
   #homeContent .secondMainContainer .firstDescription,
   #homeContent .secondMainContainer .secondDescription {
     margin: 0;
-    padding: 0;
+    padding: 0.5em;
     text-align: center;
     font-size: 1.5em;
   }
@@ -267,6 +291,12 @@ footer .donationButton:hover {
   #homeContent .secondMainContainer .inscriptionButton {
     margin: 0;
     margin-bottom: 1em;
+  }
+}
+@media (max-width: 430px) {
+  #homeContent .secondMainContainer .inscriptionButton {
+    font-size: 1.25em;
+    padding: 0.5em 0.5em;
   }
 }
 #accountContent {
@@ -302,16 +332,19 @@ footer .donationButton:hover {
 }
 #connectionContent .firstContainer {
   display: flex;
-  padding: 0;
+  padding-top: 6em;
   margin: 0;
   height: auto;
   width: auto;
+  align-items: start;
 }
 #connectionContent .firstContainer .connectionTitle {
   padding: 0;
   margin: 0;
-  width: auto;
-  height: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -348,6 +381,7 @@ footer .donationButton:hover {
   width: 20em;
   display: flex;
   align-items: center;
+  color: #7b5c4d;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
@@ -361,6 +395,12 @@ footer .donationButton:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
+#connectionContent .secondContainer input::-moz-placeholder {
+  color: #7b5c4d;
+}
+#connectionContent .secondContainer input::placeholder {
+  color: #7b5c4d;
+}
 #connectionContent .secondContainer button {
   width: 6em;
   display: flex;
@@ -369,6 +409,7 @@ footer .donationButton:hover {
   color: #7b5c4d;
   display: flex;
   align-items: center;
+  color: #7b5c4d;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
@@ -381,20 +422,71 @@ footer .donationButton:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
+#connectionContent .secondContainer button::-moz-placeholder {
+  color: #7b5c4d;
+}
+#connectionContent .secondContainer button::placeholder {
+  color: #7b5c4d;
+}
 #connectionContent .secondContainer a {
   text-decoration: none;
 }
 
+@media (max-width: 430px) {
+  #connectionContent .firstContainer {
+    align-items: center;
+  }
+  #connectionContent .secondContainer {
+    width: 100%;
+  }
+  #connectionContent .secondContainer .registrationForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #connectionContent .secondContainer .registrationForm input {
+    width: 15em;
+    padding: 0;
+    text-align: center;
+  }
+}
 #ownerMenuContent {
+  display: flex;
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
   min-height: 75vh;
   height: auto;
   width: 100%;
-  background-color: rgba(148, 111, 93, 0.5019607843);
   justify-content: center;
   align-items: center;
+  background-color: rgba(148, 111, 93, 0.5960784314);
+}
+#ownerMenuContent ul {
+  padding: 0.5em;
+  margin: 0;
+  height: auto;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+}
+#ownerMenuContent ul .link {
+  padding: 0;
+  margin: 0;
+  font-size: 1.25em;
+  line-height: 1.5em;
+  color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
+  transition: background-color 0.3s ease;
+}
+#ownerMenuContent ul .link:hover {
+  color: #cccccc;
+  cursor: pointer;
 }
 
 #ownerPageContent {
@@ -408,41 +500,39 @@ footer .donationButton:hover {
 }
 
 #tenantMenuContent {
+  display: flex;
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
   min-height: 75vh;
   height: auto;
   width: 100%;
-  background-color: rgba(148, 111, 93, 0.5019607843);
   justify-content: center;
   align-items: center;
+  background-color: rgba(148, 111, 93, 0.5960784314);
 }
-
-ul {
-  padding: 0;
+#tenantMenuContent ul {
+  padding: 0.5em;
   margin: 0;
   height: auto;
-  width: auto;
+  width: -moz-fit-content;
+  width: fit-content;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-ul .link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
+  flex-direction: column;
+}
+#tenantMenuContent ul .link {
   padding: 0;
   margin: 0;
-  font-size: 25px;
+  font-size: 1.25em;
+  line-height: 1.5em;
   color: #ffffff;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
   transition: background-color 0.3s ease;
 }
-ul .link:hover {
+#tenantMenuContent ul .link:hover {
   color: #cccccc;
   cursor: pointer;
 }
@@ -507,16 +597,15 @@ ul .link:hover {
   min-height: 75vh;
   height: auto;
   width: 100%;
-  background-color: rgba(148, 111, 93, 0.5019607843);
+  background-color: rgba(148, 111, 93, 0.8470588235);
 }
 #addAdContent .addAdDescription {
   margin: 0;
   padding: 0;
-  background-color: aquamarine;
-  width: 20em;
+  padding-bottom: 0.3em;
   text-align: left;
-  font-size: 32px;
-  line-height: 45px;
+  font-size: 2em;
+  line-height: 1.5em;
   color: #ffffff;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
@@ -524,7 +613,8 @@ ul .link:hover {
 }
 #addAdContent .addAdButton {
   display: flex;
-  gap: 20px;
+  gap: 1em;
+  display: flex;
   background-color: #ffffff;
   color: #946f5d;
   border: none;
@@ -536,9 +626,9 @@ ul .link:hover {
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   transition: background-color 0.3s ease;
-  padding: 10px 30px;
-  margin-right: 500px;
-  font-size: 28px;
+  padding: 0.3em 1em;
+  font-size: 1.8em;
+  align-items: center;
 }
 #addAdContent .addAdButton:hover {
   background-color: #cccccc;
@@ -554,11 +644,11 @@ ul .link:hover {
   align-items: center;
   line-height: 0;
   height: auto;
-  min-height: 40px;
+  min-height: 1.5em;
   width: auto;
-  min-width: 40px;
-  border-radius: 20px;
-  font-size: 30px;
+  min-width: 1.5em;
+  border-radius: 50%;
+  font-size: 1em;
 }
 
 #inscriptionContent {
@@ -672,6 +762,7 @@ ul .link:hover {
   width: 20em;
   display: flex;
   align-items: center;
+  color: #7b5c4d;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
@@ -685,13 +776,11 @@ ul .link:hover {
   background-color: #cccccc;
   cursor: pointer;
 }
-#inscriptionContent .rightContainer .registrationForm input ::-moz-placeholder {
+#inscriptionContent .rightContainer .registrationForm input::-moz-placeholder {
   color: #7b5c4d;
-  opacity: 1;
 }
-#inscriptionContent .rightContainer .registrationForm input ::placeholder {
+#inscriptionContent .rightContainer .registrationForm input::placeholder {
   color: #7b5c4d;
-  opacity: 1;
 }
 #inscriptionContent .rightContainer .registrationForm button {
   width: 8em;
@@ -701,6 +790,7 @@ ul .link:hover {
   color: #7b5c4d;
   display: flex;
   align-items: center;
+  color: #7b5c4d;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
@@ -712,6 +802,12 @@ ul .link:hover {
 #inscriptionContent .rightContainer .registrationForm button:hover {
   background-color: #cccccc;
   cursor: pointer;
+}
+#inscriptionContent .rightContainer .registrationForm button::-moz-placeholder {
+  color: #7b5c4d;
+}
+#inscriptionContent .rightContainer .registrationForm button::placeholder {
+  color: #7b5c4d;
 }
 #inscriptionContent .rightContainer .registrationForm a {
   text-decoration: none;
@@ -750,6 +846,7 @@ ul .link:hover {
   font-size: 22px;
 }
 .modalContent button {
+  display: flex;
   background-color: #946f5d;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
@@ -789,14 +886,236 @@ ul .link:hover {
     text-align: center;
   }
 }
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #7b5c4d !important;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 #adCreationContent {
   flex-wrap: wrap;
-  padding: 0;
-  margin: 0;
   min-height: 75vh;
   height: auto;
   width: 100%;
-  background-color: rgba(148, 111, 93, 0.5019607843);
+  background-color: rgba(148, 111, 93, 0.5960784314);
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+}
+#adCreationContent form {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2em;
+}
+#adCreationContent form input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #7b5c4d !important;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
+}
+#adCreationContent form .firstRentalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 30%;
+  width: auto;
+  height: auto;
+  gap: 0.5em;
+}
+#adCreationContent form .firstRentalContainer #adCreationTitle {
+  margin: 0;
+  padding: 0;
+  padding-top: 0.5em;
+  text-align: start;
+  font-size: 2em;
+  color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.6352941176));
+}
+#adCreationContent form .firstRentalContainer label {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 1rem;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+}
+#adCreationContent form .firstRentalContainer #rentalName {
+  width: 30em;
+  height: 2em;
+  border-radius: 25px;
+  border: none;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+  color: #7b5c4d;
+  text-align: center;
+}
+#adCreationContent form .firstRentalContainer #beds {
+  width: 3em;
+  height: 2em;
+  border: none;
+  padding-left: 1em;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+  color: #7b5c4d;
+}
+#adCreationContent form #postalCode {
+  font-size: 1rem;
+  width: 6em;
+  height: 2em;
+  border-radius: 25px;
+  border: none;
+  color: #7b5c4d;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+#adCreationContent form #addressCity,
+#adCreationContent form #addressDepartment,
+#adCreationContent form #addressRegion,
+#adCreationContent form option {
+  font-size: 1rem;
+  width: 15em;
+  height: 2em;
+  border-radius: 25px;
+  border: none;
+  color: #7b5c4d;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+  text-align: center;
+}
+#adCreationContent form #checkboxes {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1em;
+}
+#adCreationContent form #checkboxes .checkbox {
+  height: 1.5em;
+  width: 1.5em;
+}
+#adCreationContent form .secondRentalContainer {
+  display: flex;
+  flex-direction: column;
+  min-width: 50%;
+  width: auto;
+  height: auto;
+  align-items: center;
+}
+#adCreationContent form .secondRentalContainer span {
+  padding-top: 2em;
+  color: #ffffff;
+  line-height: 0;
+  font-size: 1rem;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+}
+#adCreationContent form .secondRentalContainer #description {
+  padding: 1em;
+  min-width: 55em;
+  width: auto;
+  height: 6em;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  color: #7b5c4d;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 600;
+}
+#adCreationContent form .secondRentalContainer #description::-moz-placeholder {
+  color: #7b5c4d;
+  font-family: "Quicksand", sans-serif;
+  opacity: 1;
+  font-size: 1rem;
+  font-weight: 600;
+}
+#adCreationContent form .secondRentalContainer #description::placeholder {
+  color: #7b5c4d;
+  font-family: "Quicksand", sans-serif;
+  opacity: 1;
+  font-size: 1rem;
+  font-weight: 600;
+}
+#adCreationContent form .secondRentalContainer .rentalImages {
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+#adCreationContent form .secondRentalContainer .rentalImages .upload-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+  margin: 1em;
+  border-radius: 8px;
+}
+#adCreationContent form .secondRentalContainer .rentalImages .upload-zone:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+#adCreationContent form .secondRentalContainer .rentalImages .mainImage .upload-zone {
+  width: 550px;
+  height: 332px;
+  overflow: hidden;
+}
+#adCreationContent form .secondRentalContainer .rentalImages .mainImage .upload-zone .preview-img {
+  height: 340px;
+}
+#adCreationContent form .secondRentalContainer .rentalImages .image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+#adCreationContent form .secondRentalContainer .rentalImages .image-grid .secondaryImage .upload-zone {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+#adCreationContent form .secondRentalContainer .rentalImages .image-grid .secondaryImage .upload-zone .preview-img {
+  height: 150px;
+}
+#adCreationContent form .secondRentalContainer .rentalImages .placeholder {
+  font-size: 1rem;
+  color: #7b5c4d;
+  text-align: center;
+}
+#adCreationContent form .secondRentalContainer button {
+  margin-top: 1em;
+  display: flex;
+  background-color: #ffffff;
+  color: #946f5d;
+  border: none;
+  border-radius: 1.25em;
+  padding: 0.4em 1.5em;
+  width: auto;
+  height: auto;
+  text-align: center;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  transition: background-color 0.3s ease;
+  padding-right: 12em;
+  padding-left: 12em;
+  font-size: 1.25em;
+}
+#adCreationContent form .secondRentalContainer button:hover {
+  background-color: #cccccc;
+  cursor: pointer;
+}
+
+.form-status {
+  color: #ffffff;
 }
 
 @font-face {

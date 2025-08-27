@@ -109,6 +109,7 @@
   width: 20em;
   display: flex;
   align-items: center;
+  color: #7b5c4d;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
@@ -122,13 +123,11 @@
   background-color: #cccccc;
   cursor: pointer;
 }
-#inscriptionContent .rightContainer .registrationForm input ::-moz-placeholder {
+#inscriptionContent .rightContainer .registrationForm input::-moz-placeholder {
   color: #7b5c4d;
-  opacity: 1;
 }
-#inscriptionContent .rightContainer .registrationForm input ::placeholder {
+#inscriptionContent .rightContainer .registrationForm input::placeholder {
   color: #7b5c4d;
-  opacity: 1;
 }
 #inscriptionContent .rightContainer .registrationForm button {
   width: 8em;
@@ -138,6 +137,7 @@
   color: #7b5c4d;
   display: flex;
   align-items: center;
+  color: #7b5c4d;
   font-family: "Quicksand", sans-serif;
   font-weight: 700;
   border: none;
@@ -149,6 +149,12 @@
 #inscriptionContent .rightContainer .registrationForm button:hover {
   background-color: #cccccc;
   cursor: pointer;
+}
+#inscriptionContent .rightContainer .registrationForm button::-moz-placeholder {
+  color: #7b5c4d;
+}
+#inscriptionContent .rightContainer .registrationForm button::placeholder {
+  color: #7b5c4d;
 }
 #inscriptionContent .rightContainer .registrationForm a {
   text-decoration: none;
@@ -187,6 +193,7 @@
   font-size: 22px;
 }
 .modalContent button {
+  display: flex;
   background-color: #946f5d;
   font-family: "Quicksand", sans-serif;
   font-weight: 600;
@@ -225,4 +232,10 @@
     padding: 0;
     text-align: center;
   }
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+  -webkit-text-fill-color: #7b5c4d !important;
+  -webkit-transition: background-color 5000s ease-in-out 0s;
+  transition: background-color 5000s ease-in-out 0s;
 }/*# sourceMappingURL=Inscription.css.map */

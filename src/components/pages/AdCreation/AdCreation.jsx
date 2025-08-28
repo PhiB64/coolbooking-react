@@ -40,7 +40,7 @@ export default function AdCreation() {
     if (/^\d{5}$/.test(code)) {
       try {
         const res = await fetch(
-          `${import.meta.env.VITE_BACKENDEND}/api/location?codePostal=${code}`,
+          `${import.meta.env.VITE_BACKEND}/api/location?codePostal=${code}`,
           { credentials: "include" }
         );
         const data = await res.json();
@@ -66,7 +66,7 @@ export default function AdCreation() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKENDEND}/rentals/create`,
+        `${import.meta.env.VITE_BACKEND}/rentals/create`,
         {
           method: "POST",
           body: formData,

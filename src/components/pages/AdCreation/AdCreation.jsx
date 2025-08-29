@@ -21,14 +21,6 @@ export default function AdCreation() {
     }
   };
 
-  const removePreview = (name) => {
-    setPreviews((prev) => {
-      const updated = { ...prev };
-      delete updated[name];
-      return updated;
-    });
-  };
-
   const handlePostalCodeChange = async (e) => {
     const code = e.target.value;
     setPostalCode(code);
@@ -203,19 +195,11 @@ export default function AdCreation() {
                 />
                 <label htmlFor="image_1" className="upload-zone">
                   {previews["image_1"] ? (
-                    <>
-                      <img
-                        src={previews["image_1"]}
-                        alt="Prévisualisation principale"
-                        className="preview-img"
-                      />
-                      <button
-                        type="button"
-                        onClick={() => removePreview("image_1")}
-                      >
-                        Supprimer
-                      </button>
-                    </>
+                    <img
+                      src={previews["image_1"]}
+                      alt="Prévisualisation principale"
+                      className="preview-img"
+                    />
                   ) : (
                     <div className="placeholder">Image principale</div>
                   )}

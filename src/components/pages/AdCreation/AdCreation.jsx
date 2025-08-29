@@ -219,19 +219,11 @@ export default function AdCreation() {
                     />
                     <label htmlFor={`image_${i}`} className="upload-zone">
                       {previews[`image_${i}`] ? (
-                        <>
-                          <img
-                            src={previews[`image_${i}`]}
-                            alt={`Prévisualisation ${i}`}
-                            className="preview-img"
-                          />
-                          <button
-                            type="button"
-                            onClick={() => removePreview(`image_${i}`)}
-                          >
-                            Supprimer
-                          </button>
-                        </>
+                        <img
+                          src={previews[`image_${i}`]}
+                          alt={`Prévisualisation ${i}`}
+                          className="preview-img"
+                        />
                       ) : (
                         <div className="placeholder">Image {i}</div>
                       )}

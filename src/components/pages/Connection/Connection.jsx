@@ -10,6 +10,7 @@ export default function Connection() {
     event.preventDefault();
 
     const formData = new FormData(event.target);
+    console.log("URL backend utilisée :", import.meta.env.VITE_BACKEND);
 
     try {
       const response = await fetch(

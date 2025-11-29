@@ -8,6 +8,7 @@ export default function Inscription() {
   const [imageSrc, setImageSrc] = useState("/download.png");
   const [selectedRole, setSelectedRole] = useState("");
   const [showModal, setShowModal] = useState(false);
+  const [success, setSuccess] = useState(false);
   const fileInputRef = useRef(null);
   const navigate = useNavigate();
 
@@ -27,6 +28,10 @@ export default function Inscription() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
+
+    // Debug : afficher les données envoyées
+    console.log("Role envoyé:", formData.get("role"));
+    console.log("Données complètes:", Object.fromEntries(formData.entries()));
 
     try {
       const response = await fetch(
@@ -55,7 +60,8 @@ export default function Inscription() {
       setUser(newUser);
       localStorage.setItem("user", JSON.stringify(newUser));
 
-      navigate("/Compte");
+      setSuccess(true);
+      setTimeout(() => navigate("/Connexion"), 4000);
     } catch (err) {
       alert("Erreur : " + err.message);
     }
@@ -73,6 +79,19 @@ export default function Inscription() {
                 : "En tant que locataire, vous pouvez explorer les biens disponibles à la location et prendre contact avec les propriétaires via la messagerie"}
             </p>
             <button onClick={() => setShowModal(false)}>Fermer</button>
+          </div>
+        </div>
+      )}
+
+      {success && (
+        <div className="rolesModal">
+          <div className="modalContent successModal">
+            <h3>✓ Inscription réussie !</h3>
+            <p>
+              Votre compte a été créé avec succès.
+              <br />
+              Vous allez être redirigé vers la page de connexion...
+            </p>
           </div>
         </div>
       )}

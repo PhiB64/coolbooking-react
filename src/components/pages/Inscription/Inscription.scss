@@ -170,6 +170,18 @@
     @include brownButton;
     padding: 0.5em 1.25em;
   }
+
+  &.successModal {
+    h3 {
+      color: #28a745;
+      font-size: 1.75em;
+      margin-bottom: 1em;
+    }
+    p {
+      color: $tertiary-color;
+      line-height: 1.6;
+    }
+  }
 }
 
 @media (max-width: 768px) {

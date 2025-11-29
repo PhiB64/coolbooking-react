@@ -4,6 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "devmaria": "vite --mode maria",
+    "devmongo": "vite --mode mongo",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",

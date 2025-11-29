@@ -14,7 +14,7 @@ export default function Connection() {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_BACKEND}/users/login`,
+        `${import.meta.env.VITE_BACKEND}/auth/login`,
         {
           method: "POST",
           body: formData,

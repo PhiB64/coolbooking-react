@@ -134,7 +134,7 @@ export default function Inscription() {
                 </div>
               </div>
 
-              <input type="text" name="name" placeholder="Nom" required />
+              <input type="text" name="lastname" placeholder="Nom" required />
               <input
                 type="text"
                 name="firstname"
